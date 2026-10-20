@@ -1,0 +1,11 @@
+:root {
+  --rema-noite: #111536;
+  --rema-indigo: #5B5BF7;
+  --rema-lavanda: #A9A9FF;
+  --rema-nevoa: #F5F5FA;
+  --rema-grafite: #4B5070;
+  --rema-noite-medio: #2C3470;
+  --rema-lavanda-clara: #C9CBEA;
+  --rema-fonte-titulo: 'Sora', 'Avenir Next', 'Segoe UI', sans-serif;
+  --rema-fonte-dados: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+}

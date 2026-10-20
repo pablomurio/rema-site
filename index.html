@@ -1,17 +1,90 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>rema.ia.br</title>
-  <style>
-    html, body { margin: 0; min-height: 100%; background: #0e1236; }
-    body { display: grid; place-items: center; }
-    main { width: min(100vw, 1600px); }
-    img { display: block; width: 100%; height: auto; }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>rema.ia — Engenharia da leveza</title>
+<meta name="description" content="rema.ia: atendimento, vendas e processos 24 horas, com a precisão de um beija-flor. Engenharia da leveza.">
+<meta name="theme-color" content="#111536">
+<!-- Se o JavaScript estiver desligado, segue para a página interna mesmo assim -->
+<noscript><meta http-equiv="refresh" content="3;url=como-funciona.html"></noscript>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="prefetch" href="como-funciona.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400&display=swap">
+<style>
+html,body{margin:0;height:100%;background:#111536}
+body{font-family:'Sora','Avenir Next','Segoe UI',sans-serif;color:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden;transition:opacity .35s ease}
+body.saindo{opacity:0}
+.palco{position:relative;width:800px;height:520px;flex:none;transform:scale(var(--escala,1))}
+.linha{stroke-dasharray:1;stroke-dashoffset:1;animation:desenhar 1.5s cubic-bezier(.5,0,.12,1) .15s forwards}
+.linha2{stroke-dasharray:1;stroke-dashoffset:1;animation:desenhar 1.3s cubic-bezier(.5,0,.12,1) .25s forwards}
+.ave{position:absolute;left:0;top:0;width:96px;height:96px;offset-path:path('M225 360 C365 356 495 316 575 210');offset-rotate:0deg;offset-anchor:24% 90%;offset-distance:0%;opacity:0;animation:voar 1.5s cubic-bezier(.5,0,.12,1) .15s forwards}
+.asa{width:96px;height:96px;transform-origin:50% 60%;animation:bater .085s ease-in-out .15s 18 alternate}
+.nome{position:absolute;left:0;right:0;top:400px;display:flex;flex-direction:column;align-items:center;gap:14px}
+.marca{margin:0;font-size:64px;font-weight:300;letter-spacing:.01em;line-height:1;opacity:0;transform:translateY(10px);animation:surgir .6s cubic-bezier(.2,.7,.2,1) 1.45s forwards}
+.marca span{color:#A9A9FF}
+.slogan{margin:0;font-size:12px;font-weight:400;letter-spacing:.44em;text-transform:uppercase;color:#C9CBEA;padding-left:.44em;opacity:0;animation:surgir .6s cubic-bezier(.2,.7,.2,1) 1.7s forwards}
+.pular{position:fixed;right:max(20px,env(safe-area-inset-right));bottom:max(20px,env(safe-area-inset-bottom));color:#C9CBEA;font-size:13px;text-decoration:none;padding:12px 16px;min-height:44px;box-sizing:border-box;display:inline-flex;align-items:center;border-radius:8px;opacity:.7}
+.pular:hover,.pular:focus-visible{opacity:1;outline:1px solid #2C3470}
+@keyframes desenhar{to{stroke-dashoffset:0}}
+@keyframes voar{0%{offset-distance:0%;opacity:0}10%{opacity:1}100%{offset-distance:100%;opacity:1}}
+@keyframes bater{from{transform:translateY(-1.5px) rotate(-2.5deg)}to{transform:translateY(1.5px) rotate(2deg)}}
+@keyframes surgir{to{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){
+  .linha,.linha2{animation:none;stroke-dashoffset:0}
+  .ave{animation:none;offset-distance:100%;opacity:1}
+  .asa{animation:none}
+  .marca,.slogan{animation:none;opacity:1;transform:none}
+  body{transition:none}
+}
+</style>
 </head>
 <body>
-  <main><img src="layout.jpg" alt="rema.ia.br, Engenharia da Leveza"></main>
+<main class="palco" aria-label="rema.ia, Engenharia da leveza">
+  <svg width="800" height="520" viewBox="0 0 800 520" aria-hidden="true" style="position:absolute;left:0;top:0">
+    <path class="linha2" pathLength="1" d="M225 360 C355 356 455 326 515 270" stroke="#2C3470" stroke-width="1" stroke-linecap="round" fill="none"/>
+    <path class="linha" pathLength="1" d="M225 360 C365 356 495 316 575 210" stroke="#A9A9FF" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+  </svg>
+  <div class="ave" aria-hidden="true"><div class="asa">
+    <svg width="96" height="96" viewBox="0 0 120 120">
+      <g stroke="#111536" stroke-width="2.5" stroke-linejoin="round">
+        <polygon points="62,44 56,2 73,34" fill="#A9A9FF"/>
+        <polygon points="64,46 24,14 74,35" fill="#FFFFFF"/>
+        <polygon points="74,34 78,52 58,78 44,72" fill="#FFFFFF"/>
+        <polygon points="78,52 68,70 58,78" fill="#C9CBEA"/>
+        <polygon points="74,34 88,40 86,48 78,52" fill="#FFFFFF"/>
+        <polygon points="86,41 116,35 86,45" fill="#FFFFFF"/>
+        <polygon points="44,72 58,78 36,112" fill="#C9CBEA"/>
+        <polygon points="44,72 36,112 24,102" fill="#FFFFFF"/>
+      </g>
+    </svg>
+  </div></div>
+  <div class="nome">
+    <h1 class="marca">rema<span>.ia</span></h1>
+    <p class="slogan">Engenharia da leveza</p>
+  </div>
+</main>
+<a class="pular" href="como-funciona.html">Pular</a>
+<script>
+(function () {
+  var DESTINO = 'como-funciona.html'; // página interna
+  var TEMPO = 2500;                   // milissegundos até ir para a página interna
+  var palco = document.querySelector('.palco');
+  function ajustar() {
+    var s = Math.min(1, (window.innerWidth - 32) / 800, (window.innerHeight - 32) / 520);
+    palco.style.setProperty('--escala', s);
+  }
+  ajustar();
+  window.addEventListener('resize', ajustar);
+  var reduzido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  setTimeout(function () {
+    if (!reduzido) document.body.classList.add('saindo');
+    setTimeout(function () { window.location.replace(DESTINO); }, reduzido ? 0 : 350);
+  }, TEMPO - (reduzido ? 0 : 350));
+})();
+</script>
 </body>
 </html>
