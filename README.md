@@ -6,7 +6,7 @@ Engenharia da leveza.
 
 ```
 index.html            Abertura: o beija-flor voa, desenha a linha e forma o logo.
-                      Depois de 2,5 segundos, segue para a página interna.
+                      Depois de 2,2 segundos, segue para a página interna.
 como-funciona.html    Página interna no estilo Monolinha.
 favicon.ico
 assets/
@@ -28,7 +28,7 @@ O site é estático: não precisa de servidor nem de instalação.
 
 ## Ajustes rápidos
 
-- **Tempo da abertura:** em `index.html`, troque `var TEMPO = 2500;` (em milissegundos).
+- **Tempo da abertura:** em `index.html`, troque `var TEMPO = 2200;` (em milissegundos). Se diminuir muito, encurte também as animações no `<style>`, senão a página troca antes de o logo aparecer.
 - **Página de destino:** em `index.html`, troque `var DESTINO = 'como-funciona.html';`.
 - **Pular a abertura:** o link "Pular" leva direto para a página interna.
 - **Movimento reduzido:** quem ativou essa opção no aparelho vê o logo já formado, sem animação.

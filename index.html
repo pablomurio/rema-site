@@ -19,14 +19,14 @@ html,body{margin:0;height:100%;background:#111536}
 body{font-family:'Sora','Avenir Next','Segoe UI',sans-serif;color:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden;transition:opacity .35s ease}
 body.saindo{opacity:0}
 .palco{position:relative;width:800px;height:520px;flex:none;transform:scale(var(--escala,1))}
-.linha{stroke-dasharray:1;stroke-dashoffset:1;animation:desenhar 1.5s cubic-bezier(.5,0,.12,1) .15s forwards}
-.linha2{stroke-dasharray:1;stroke-dashoffset:1;animation:desenhar 1.3s cubic-bezier(.5,0,.12,1) .25s forwards}
-.ave{position:absolute;left:0;top:0;width:96px;height:96px;offset-path:path('M225 360 C365 356 495 316 575 210');offset-rotate:0deg;offset-anchor:24% 90%;offset-distance:0%;opacity:0;animation:voar 1.5s cubic-bezier(.5,0,.12,1) .15s forwards}
-.asa{width:96px;height:96px;transform-origin:50% 60%;animation:bater .085s ease-in-out .15s 18 alternate}
+.linha{stroke-dasharray:1;stroke-dashoffset:1;animation:desenhar 1.2s cubic-bezier(.5,0,.12,1) .12s forwards}
+.linha2{stroke-dasharray:1;stroke-dashoffset:1;animation:desenhar 1.05s cubic-bezier(.5,0,.12,1) .2s forwards}
+.ave{position:absolute;left:0;top:0;width:96px;height:96px;offset-path:path('M225 360 C365 356 495 316 575 210');offset-rotate:0deg;offset-anchor:24% 90%;offset-distance:0%;opacity:0;animation:voar 1.2s cubic-bezier(.5,0,.12,1) .12s forwards}
+.asa{width:96px;height:96px;transform-origin:50% 60%;animation:bater .085s ease-in-out .12s 14 alternate}
 .nome{position:absolute;left:0;right:0;top:400px;display:flex;flex-direction:column;align-items:center;gap:14px}
-.marca{margin:0;font-size:64px;font-weight:300;letter-spacing:.01em;line-height:1;opacity:0;transform:translateY(10px);animation:surgir .6s cubic-bezier(.2,.7,.2,1) 1.45s forwards}
+.marca{margin:0;font-size:64px;font-weight:300;letter-spacing:.01em;line-height:1;opacity:0;transform:translateY(10px);animation:surgir .5s cubic-bezier(.2,.7,.2,1) 1.15s forwards}
 .marca span{color:#A9A9FF}
-.slogan{margin:0;font-size:12px;font-weight:400;letter-spacing:.44em;text-transform:uppercase;color:#C9CBEA;padding-left:.44em;opacity:0;animation:surgir .6s cubic-bezier(.2,.7,.2,1) 1.7s forwards}
+.slogan{margin:0;font-size:12px;font-weight:400;letter-spacing:.44em;text-transform:uppercase;color:#C9CBEA;padding-left:.44em;opacity:0;animation:surgir .5s cubic-bezier(.2,.7,.2,1) 1.35s forwards}
 .pular{position:fixed;right:max(20px,env(safe-area-inset-right));bottom:max(20px,env(safe-area-inset-bottom));color:#C9CBEA;font-size:13px;text-decoration:none;padding:12px 16px;min-height:44px;box-sizing:border-box;display:inline-flex;align-items:center;border-radius:8px;opacity:.7}
 .pular:hover,.pular:focus-visible{opacity:1;outline:1px solid #2C3470}
 @keyframes desenhar{to{stroke-dashoffset:0}}
@@ -71,7 +71,7 @@ body.saindo{opacity:0}
 <script>
 (function () {
   var DESTINO = 'como-funciona.html'; // página interna
-  var TEMPO = 2500;                   // milissegundos até ir para a página interna
+  var TEMPO = 2200;                   // milissegundos até ir para a página interna
   var palco = document.querySelector('.palco');
   function ajustar() {
     var s = Math.min(1, (window.innerWidth - 32) / 800, (window.innerHeight - 32) / 520);
