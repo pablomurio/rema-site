@@ -5,18 +5,21 @@ Engenharia da leveza.
 ## Estrutura
 
 ```
-index.html            Abertura: o beija-flor voa, desenha a linha e forma o logo.
-                      Depois de 2,2 segundos, segue para a página interna.
-como-funciona.html    Página interna no estilo Monolinha.
-favicon.ico
+index.html              Home (/). Na primeira visita da sessão, a abertura com o
+                        beija-flor toca por cima da página por 2,2 segundos.
+solucoes/index.html     /solucoes  Beija-flores (atendimento, vendas, cobrança, operações)
+raio-x/index.html       /raio-x    Raio-X da Complexidade
+sobre/index.html        /sobre     Sobre a rema.ia
+fundador/index.html     /fundador  Sobre o fundador
+contato/index.html      /contato   Formulário de contato
+como-funciona.html      Etapas da implantação (fora do menu; linkada em Soluções)
 assets/
-  favicon.svg
-  apple-touch-icon.png
+  site.css                  Estilo global das páginas
   rema-ia-tokens.css        Cores e fontes da marca
-  rema-ia-slogan-cor.svg    Logo com slogan (fundo claro)
-  rema-ia-slogan-negativo.svg
-  rema-ia-simbolo-cor.svg
+  favicon.svg, apple-touch-icon.png, logos .svg
 ```
+
+O cabeçalho e o rodapé se repetem em cada página: ao mudar o menu, atualize todas.
 
 ## Como publicar
 
@@ -28,12 +31,14 @@ O site é estático: não precisa de servidor nem de instalação.
 
 ## Ajustes rápidos
 
-- **Tempo da abertura:** em `index.html`, troque `var TEMPO = 2200;` (em milissegundos). Se diminuir muito, encurte também as animações no `<style>`, senão a página troca antes de o logo aparecer.
-- **Página de destino:** em `index.html`, troque `var DESTINO = 'como-funciona.html';`.
-- **Pular a abertura:** o link "Pular" leva direto para a página interna.
-- **Movimento reduzido:** quem ativou essa opção no aparelho vê o logo já formado, sem animação.
+- **Tempo da abertura:** em `index.html`, troque `var TEMPO = 2200;` (em milissegundos).
+- **Movimento reduzido:** quem ativou essa opção no aparelho não vê a abertura.
+- **Destino do formulário:** em `contato/index.html`, preencha `var DESTINO = '';` com o endereço que recebe o envio (POST).
 
 ## Pendências antes de publicar
 
-- Preencher a resposta "Onde ficam os dados da minha empresa?" em `como-funciona.html` (está marcada como `[DEFINIR]`).
-- Ligar o botão "Agendar o Raio-X da Complexidade" a um formulário, agenda ou WhatsApp.
+Os textos ainda a definir aparecem destacados em amarelo no site (`class="definir"`).
+
+- `contato/index.html`: definir o destino do formulário (`DESTINO`).
+- `fundador/index.html`: nome do fundador, trajetória desde 1999 e origem do nome “rema”.
+- `como-funciona.html`: resposta “Onde ficam os dados da minha empresa?”.

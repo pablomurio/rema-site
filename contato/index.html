@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contato · rema.ia — Engenharia da leveza</title>
+<meta name="description" content="Fale com a rema.ia: agende o Raio-X da Complexidade ou entenda o que os beija-flores podem fazer pela sua empresa.">
+<meta name="theme-color" content="#111536">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@200;300;400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/rema-ia-tokens.css">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+
+<header class="topo">
+<div class="wrap">
+<a class="logo" href="/" aria-label="rema.ia, página inicial">
+<svg width="40" height="40" viewBox="0 0 120 120" aria-hidden="true"><g stroke="#111536" stroke-width="3" stroke-linejoin="round" fill="none"><polygon points="64,46 24,14 74,35"/><polygon points="74,34 78,52 58,78 44,72"/><polygon points="74,34 88,40 86,48 78,52"/><polygon points="86,41 116,35 86,45"/><polygon points="44,72 58,78 36,112"/><polygon points="44,72 36,112 24,102"/><polygon points="62,44 56,2 73,34" stroke="#5B5BF7"/></g></svg>
+<span>rema<span>.ia</span></span>
+</a>
+<nav class="menu" aria-label="Principal">
+<a href="/solucoes/">Soluções</a>
+<a href="/sobre/">Sobre</a>
+<a href="/fundador/">Fundador</a>
+<a href="/contato/" aria-current="page">Contato</a>
+<a class="botao" href="/raio-x/">Raio-X da Complexidade</a>
+</nav>
+</div>
+</header>
+
+<main>
+
+<section class="hero" style="padding-bottom:48px">
+<div class="wrap">
+<div class="pilha">
+<div class="rotulo">Contato</div>
+<h1>Conte onde a operação pesa. <strong>A gente responde.</strong></h1>
+<p class="lead">Preencha o formulário e escolha como prefere seguir: agendar o Raio-X da Complexidade ou primeiro entender as possibilidades.</p>
+</div>
+</div>
+</section>
+
+<section style="padding:0 0 96px">
+<div class="wrap estreito">
+<form class="form" id="form-contato" novalidate>
+<div class="campo"><label for="nome">Nome</label><input id="nome" name="nome" type="text" autocomplete="name" required></div>
+<div class="campo"><label for="empresa">Empresa</label><input id="empresa" name="empresa" type="text" autocomplete="organization" required></div>
+<div class="campo"><label for="email">E-mail</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+<div class="campo"><label for="whatsapp">WhatsApp</label><input id="whatsapp" name="whatsapp" type="tel" autocomplete="tel" inputmode="tel" placeholder="(11) 90000-0000"></div>
+<div class="campo inteiro"><label for="area">Área que mais dói</label>
+<select id="area" name="area" required>
+<option value="">Escolha uma área</option>
+<option>Atendimento</option>
+<option>Vendas</option>
+<option>Cobrança</option>
+<option>Operações</option>
+<option>Mais de uma / não sei dizer</option>
+</select></div>
+<div class="campo inteiro"><label for="descricao">Conte um pouco sobre a situação</label><textarea id="descricao" name="descricao" placeholder="O que se repete, onde trava, o que se perde fora do horário…"></textarea></div>
+<fieldset class="campo">
+<legend>Como você quer seguir?</legend>
+<label class="opcao"><input type="radio" name="interesse" value="raio-x" required> Quero agendar o Raio-X da Complexidade</label>
+<label class="opcao"><input type="radio" name="interesse" value="possibilidades"> Quero primeiro entender as possibilidades</label>
+</fieldset>
+<p class="aviso" id="aviso" role="status" hidden></p>
+<div class="campo inteiro" style="align-items:flex-start"><button class="botao cheio" type="submit">Enviar</button></div>
+</form>
+</div>
+</section>
+
+</main>
+
+<footer class="rodape">
+<div class="wrap">
+<div>rema.ia — Engenharia da leveza<br>São Paulo · rema.ia.br</div>
+<nav aria-label="Rodapé">
+<a href="/">Início</a>
+<a href="/solucoes/">Soluções</a>
+<a href="/raio-x/">Raio-X</a>
+<a href="/sobre/">Sobre</a>
+<a href="/fundador/">Fundador</a>
+<a href="/contato/">Contato</a>
+</nav>
+</div>
+</footer>
+
+<script>
+(function () {
+  // Endereço que recebe o formulário (POST). Ex.: um endpoint do Formspree, n8n ou similar.
+  // [DEFINIR] Enquanto estiver vazio, o formulário avisa que o envio não está disponível.
+  var DESTINO = '';
+
+  var form = document.getElementById('form-contato');
+  var aviso = document.getElementById('aviso');
+
+  // Vindo do botão "Agendar meu Raio-X", já marca essa opção
+  if (new URLSearchParams(location.search).get('interesse') === 'raio-x') {
+    form.querySelector('input[value="raio-x"]').checked = true;
+  }
+
+  function mostrar(texto) { aviso.textContent = texto; aviso.hidden = false; }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+    if (!DESTINO) {
+      mostrar('O envio pelo site ainda não está disponível. Tente novamente em breve.');
+      return;
+    }
+    var botao = form.querySelector('button[type="submit"]');
+    botao.disabled = true;
+    fetch(DESTINO, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } })
+      .then(function (r) {
+        if (!r.ok) throw new Error(r.status);
+        form.reset();
+        mostrar('Recebemos sua mensagem. A gente responde em breve.');
+      })
+      .catch(function () {
+        mostrar('Não foi possível enviar agora. Tente novamente em alguns minutos.');
+      })
+      .then(function () { botao.disabled = false; });
+  });
+})();
+</script>
+</body>
+</html>

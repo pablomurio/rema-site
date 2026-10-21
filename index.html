@@ -5,20 +5,32 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>rema.ia — Engenharia da leveza</title>
-<meta name="description" content="rema.ia: atendimento, vendas e processos 24 horas, com a precisão de um beija-flor. Engenharia da leveza.">
+<meta name="description" content="Agentes de IA que atendem, vendem, cobram e operam processos 24 horas, integrados ao que a sua empresa já usa. Comece pelo Raio-X da Complexidade.">
 <meta name="theme-color" content="#111536">
-<!-- Se o JavaScript estiver desligado, segue para a página interna mesmo assim -->
-<noscript><meta http-equiv="refresh" content="3;url=como-funciona.html"></noscript>
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="icon" href="favicon.ico" sizes="any">
-<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<link rel="prefetch" href="como-funciona.html">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@200;300;400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/rema-ia-tokens.css">
+<link rel="stylesheet" href="/assets/site.css">
+<script>
+// Abertura com o beija-flor: só na primeira visita da sessão e sem "movimento reduzido"
+(function () {
+  try {
+    if (sessionStorage.getItem('rema-abertura')) return;
+    sessionStorage.setItem('rema-abertura', '1');
+  } catch (e) {}
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.documentElement.classList.add('com-abertura');
+})();
+</script>
 <style>
-html,body{margin:0;height:100%;background:#111536}
-body{font-family:'Sora','Avenir Next','Segoe UI',sans-serif;color:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden;transition:opacity .35s ease}
-body.saindo{opacity:0}
+/* Abertura */
+#abertura{display:none}
+.com-abertura body{overflow:hidden;animation:none}
+.com-abertura #abertura{position:fixed;inset:0;z-index:100;background:#111536;color:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden;transition:opacity .35s ease}
+#abertura.saindo{opacity:0}
 .palco{position:relative;width:800px;height:520px;flex:none;transform:scale(var(--escala,1))}
 .linha{stroke-dasharray:1;stroke-dashoffset:1;animation:desenhar 1.2s cubic-bezier(.5,0,.12,1) .12s forwards}
 .linha2{stroke-dasharray:1;stroke-dashoffset:1;animation:desenhar 1.05s cubic-bezier(.5,0,.12,1) .2s forwards}
@@ -28,63 +40,228 @@ body.saindo{opacity:0}
 .marca{margin:0;font-size:64px;font-weight:300;letter-spacing:.01em;line-height:1;opacity:0;transform:translateY(10px);animation:surgir .5s cubic-bezier(.2,.7,.2,1) 1.15s forwards}
 .marca span{color:#A9A9FF}
 .slogan{margin:0;font-size:12px;font-weight:400;letter-spacing:.44em;text-transform:uppercase;color:#C9CBEA;padding-left:.44em;opacity:0;animation:surgir .5s cubic-bezier(.2,.7,.2,1) 1.35s forwards}
-.pular{position:fixed;right:max(20px,env(safe-area-inset-right));bottom:max(20px,env(safe-area-inset-bottom));color:#C9CBEA;font-size:13px;text-decoration:none;padding:12px 16px;min-height:44px;box-sizing:border-box;display:inline-flex;align-items:center;border-radius:8px;opacity:.7}
+.pular{position:fixed;right:max(20px,env(safe-area-inset-right));bottom:max(20px,env(safe-area-inset-bottom));color:#C9CBEA;font:inherit;font-size:13px;background:none;border:0;cursor:pointer;padding:12px 16px;min-height:44px;border-radius:8px;opacity:.7}
 .pular:hover,.pular:focus-visible{opacity:1;outline:1px solid #2C3470}
 @keyframes desenhar{to{stroke-dashoffset:0}}
 @keyframes voar{0%{offset-distance:0%;opacity:0}10%{opacity:1}100%{offset-distance:100%;opacity:1}}
 @keyframes bater{from{transform:translateY(-1.5px) rotate(-2.5deg)}to{transform:translateY(1.5px) rotate(2deg)}}
 @keyframes surgir{to{opacity:1;transform:none}}
-@media (prefers-reduced-motion: reduce){
-  .linha,.linha2{animation:none;stroke-dashoffset:0}
-  .ave{animation:none;offset-distance:100%;opacity:1}
-  .asa{animation:none}
-  .marca,.slogan{animation:none;opacity:1;transform:none}
-  body{transition:none}
-}
 </style>
 </head>
 <body>
-<main class="palco" aria-label="rema.ia, Engenharia da leveza">
-  <svg width="800" height="520" viewBox="0 0 800 520" aria-hidden="true" style="position:absolute;left:0;top:0">
-    <path class="linha2" pathLength="1" d="M225 360 C355 356 455 326 515 270" stroke="#2C3470" stroke-width="1" stroke-linecap="round" fill="none"/>
-    <path class="linha" pathLength="1" d="M225 360 C365 356 495 316 575 210" stroke="#A9A9FF" stroke-width="1.6" stroke-linecap="round" fill="none"/>
-  </svg>
-  <div class="ave" aria-hidden="true"><div class="asa">
-    <svg width="96" height="96" viewBox="0 0 120 120">
-      <g stroke="#111536" stroke-width="2.5" stroke-linejoin="round">
-        <polygon points="62,44 56,2 73,34" fill="#A9A9FF"/>
-        <polygon points="64,46 24,14 74,35" fill="#FFFFFF"/>
-        <polygon points="74,34 78,52 58,78 44,72" fill="#FFFFFF"/>
-        <polygon points="78,52 68,70 58,78" fill="#C9CBEA"/>
-        <polygon points="74,34 88,40 86,48 78,52" fill="#FFFFFF"/>
-        <polygon points="86,41 116,35 86,45" fill="#FFFFFF"/>
-        <polygon points="44,72 58,78 36,112" fill="#C9CBEA"/>
-        <polygon points="44,72 36,112 24,102" fill="#FFFFFF"/>
-      </g>
+
+<div id="abertura" aria-hidden="true">
+  <div class="palco">
+    <svg width="800" height="520" viewBox="0 0 800 520" style="position:absolute;left:0;top:0">
+      <path class="linha2" pathLength="1" d="M225 360 C355 356 455 326 515 270" stroke="#2C3470" stroke-width="1" stroke-linecap="round" fill="none"/>
+      <path class="linha" pathLength="1" d="M225 360 C365 356 495 316 575 210" stroke="#A9A9FF" stroke-width="1.6" stroke-linecap="round" fill="none"/>
     </svg>
-  </div></div>
-  <div class="nome">
-    <h1 class="marca">rema<span>.ia</span></h1>
-    <p class="slogan">Engenharia da leveza</p>
+    <div class="ave"><div class="asa">
+      <svg width="96" height="96" viewBox="0 0 120 120">
+        <g stroke="#111536" stroke-width="2.5" stroke-linejoin="round">
+          <polygon points="62,44 56,2 73,34" fill="#A9A9FF"/>
+          <polygon points="64,46 24,14 74,35" fill="#FFFFFF"/>
+          <polygon points="74,34 78,52 58,78 44,72" fill="#FFFFFF"/>
+          <polygon points="78,52 68,70 58,78" fill="#C9CBEA"/>
+          <polygon points="74,34 88,40 86,48 78,52" fill="#FFFFFF"/>
+          <polygon points="86,41 116,35 86,45" fill="#FFFFFF"/>
+          <polygon points="44,72 58,78 36,112" fill="#C9CBEA"/>
+          <polygon points="44,72 36,112 24,102" fill="#FFFFFF"/>
+        </g>
+      </svg>
+    </div></div>
+    <div class="nome">
+      <p class="marca">rema<span>.ia</span></p>
+      <p class="slogan">Engenharia da leveza</p>
+    </div>
   </div>
+  <button class="pular" type="button" tabindex="-1">Pular</button>
+</div>
+
+<header class="topo">
+<div class="wrap">
+<a class="logo" href="/" aria-label="rema.ia, página inicial">
+<svg width="40" height="40" viewBox="0 0 120 120" aria-hidden="true"><g stroke="#111536" stroke-width="3" stroke-linejoin="round" fill="none"><polygon points="64,46 24,14 74,35"/><polygon points="74,34 78,52 58,78 44,72"/><polygon points="74,34 88,40 86,48 78,52"/><polygon points="86,41 116,35 86,45"/><polygon points="44,72 58,78 36,112"/><polygon points="44,72 36,112 24,102"/><polygon points="62,44 56,2 73,34" stroke="#5B5BF7"/></g></svg>
+<span>rema<span>.ia</span></span>
+</a>
+<nav class="menu" aria-label="Principal">
+<a href="/solucoes/">Soluções</a>
+<a href="/sobre/">Sobre</a>
+<a href="/fundador/">Fundador</a>
+<a href="/contato/">Contato</a>
+<a class="botao" href="/raio-x/">Raio-X da Complexidade</a>
+</nav>
+</div>
+</header>
+
+<main>
+
+<section class="hero">
+<div class="wrap">
+<div class="pilha">
+<div class="rotulo">rema.ia · Engenharia da leveza</div>
+<h1>Sua empresa tem coisa demais pra fazer. <strong>Deixa a IA carregar o peso.</strong></h1>
+<p class="lead">Agentes de IA que atendem, vendem, cobram e operam processos 24 horas por dia, integrados ao que a sua empresa já usa.</p>
+<div class="acoes">
+<a class="botao cheio" href="/raio-x/">Quero meu Raio-X da complexidade</a>
+<a class="botao vazado" href="/solucoes/">Ver como os beija-flores funcionam</a>
+</div>
+</div>
+<div class="figura">
+<svg width="300" height="300" viewBox="0 0 120 120" role="img" aria-label="Beija-flor em traço fino">
+<circle cx="60" cy="60" r="56" stroke="#E4E4EE" stroke-width="0.4" fill="none"/>
+<path d="M50 26 C60 10 80 10 80 26 C80 42 60 42 50 26 C40 10 20 10 20 26 C20 42 40 42 50 26 Z" stroke="#A9A9FF" stroke-width="0.4" stroke-dasharray="1.2 1.2" fill="none"/>
+<g stroke="#111536" stroke-width="0.7" stroke-linejoin="round" fill="none"><polygon points="64,46 24,14 74,35"/><polygon points="74,34 78,52 58,78 44,72"/><polygon points="78,52 68,70 58,78"/><polygon points="74,34 88,40 86,48 78,52"/><polygon points="86,41 116,35 86,45"/><polygon points="44,72 58,78 36,112"/><polygon points="44,72 36,112 24,102"/></g>
+<polygon points="62,44 56,2 73,34" stroke="#5B5BF7" stroke-width="0.9" stroke-linejoin="round" fill="none"/>
+</svg>
+</div>
+</div>
+</section>
+
+<section class="secao noite">
+<div class="wrap duas">
+<div class="pilha">
+<div class="rotulo">Contexto</div>
+<h2>Estamos em 1999 de novo. <strong>Agora com IA.</strong></h2>
+</div>
+<div class="texto">
+<p>Em 1999, quem entendeu a internet cedo não ganhou só um site: ganhou um jeito novo de operar. A IA está no mesmo ponto. Ainda parece novidade, mas já virou infraestrutura.</p>
+<p>A diferença é que essa infraestrutura é leve. Não pede obra, troca de sistema nem equipe nova. Ela entra no que já funciona e assume o trabalho repetitivo que hoje consome o seu time.</p>
+</div>
+</div>
+</section>
+
+<section class="secao">
+<div class="wrap pilha larga">
+<div class="pilha">
+<div class="rotulo">Peso operacional</div>
+<h2>Onde a operação pesa</h2>
+<p class="lead">Tudo o que se repete todo dia, depende de alguém lembrar e para quando o expediente acaba.</p>
+</div>
+<div class="grade">
+<div><div class="num">Atendimento</div><h3>Fila que não anda</h3><p>As mesmas perguntas o dia inteiro, cliente esperando resposta e nada acontecendo fora do horário.</p></div>
+<div><div class="num">Vendas</div><h3>Lead que esfria</h3><p>Orçamento que demora, follow-up que ninguém faz e oportunidade que chega à noite e se perde.</p></div>
+<div><div class="num">Cobrança</div><h3>Dinheiro parado</h3><p>Lembrete manual, conversa desconfortável e atraso que vira inadimplência por falta de rotina.</p></div>
+<div><div class="num">Operações</div><h3>Planilha e retrabalho</h3><p>Copiar de um sistema para outro, conferir status e repassar informação entre áreas.</p></div>
+</div>
+</div>
+</section>
+
+<section class="secao nevoa">
+<div class="wrap duas">
+<div class="pilha">
+<div class="rotulo">O que a rema.ia faz</div>
+<h2>Beija-flores: agentes de IA que <strong>tiram o peso do seu time.</strong></h2>
+<p class="lead">Cada beija-flor faz um trabalho bem definido, com precisão, dentro dos sistemas que você já usa.</p>
+</div>
+<ul class="lista">
+<li><strong>Atendem</strong> clientes no WhatsApp, no site e no e-mail, 24 horas, e passam para uma pessoa quando precisa.</li>
+<li><strong>Vendem</strong>: qualificam o contato, montam orçamento e fazem o follow-up no tempo certo.</li>
+<li><strong>Cobram</strong> com lembretes cordiais, segunda via e negociação dentro das regras da empresa.</li>
+<li><strong>Operam</strong> processos: atualizam sistemas, conferem dados e avisam quando algo sai do esperado.</li>
+<li><strong>Prestam contas</strong> no Painel da Leveza: o que foi resolvido e quanto tempo voltou para o time.</li>
+</ul>
+</div>
+</section>
+
+<section class="secao">
+<div class="wrap duas">
+<div class="pilha">
+<div class="rotulo">Porta de entrada</div>
+<h2>Raio-X da Complexidade</h2>
+<p class="lead">Antes de falar em tecnologia, a gente mede onde a sua operação mais dói.</p>
+<div class="acoes"><a class="botao cheio" href="/raio-x/">Quero meu Raio-X da complexidade</a></div>
+</div>
+<ul class="lista">
+<li><strong>60 a 90 minutos</strong> de conversa estruturada com quem decide.</li>
+<li><strong>1 página executiva</strong> como devolutiva, com os pontos de maior peso.</li>
+<li><strong>Foco em onde mais dói</strong>: horas, custos e vendas perdidas, por área.</li>
+<li><strong>Sem compromisso</strong>: você sai com um diagnóstico útil mesmo se não seguir com a gente.</li>
+</ul>
+</div>
+</section>
+
+<section class="secao nevoa">
+<div class="wrap pilha larga">
+<div class="pilha">
+<div class="rotulo">Cenário-tipo</div>
+<h2>Exemplo: uma fabricante de playgrounds</h2>
+<p class="lead">Um cenário ilustrativo, para mostrar como os beija-flores trabalham juntos.</p>
+</div>
+<div class="grade">
+<div><div class="num">Antes</div><h3>Tudo passa pelo comercial</h3><p>Escolas, condomínios e prefeituras pedem orçamento pelo WhatsApp a qualquer hora. Cada pedido exige medidas, fotos do espaço e normas de segurança. O time responde quando consegue.</p></div>
+<div><div class="num">Atendimento + Vendas</div><h3>Pedido qualificado na hora</h3><p>O beija-flor recebe o contato, coleta medidas, faixa etária e fotos, sugere modelos do catálogo e entrega ao vendedor um pedido completo.</p></div>
+<div><div class="num">Cobrança + Operações</div><h3>Do contrato à instalação</h3><p>Parcelas lembradas no prazo, status de produção atualizado e cliente avisado sobre a data da instalação, sem ninguém precisar perguntar.</p></div>
+</div>
+</div>
+</section>
+
+<section class="secao">
+<div class="wrap duas">
+<div class="pilha">
+<div class="rotulo">Sobre a rema.ia</div>
+<h2>Operação primeiro. <strong>IA a serviço dela.</strong></h2>
+<p class="texto">Somos uma empresa brasileira de inteligência aplicada aos negócios. Nosso trabalho é dominar a complexidade da sua empresa para devolver leveza e tempo.</p>
+<a href="/sobre/">Conheça a rema.ia →</a>
+</div>
+<div class="pilha">
+<div class="rotulo">Fundador</div>
+<h2>De 1999 <strong>até aqui.</strong></h2>
+<p class="texto">Uma trajetória na interseção entre tecnologia, operação e negócio, e um incômodo antigo com o peso que trava as empresas.</p>
+<a href="/fundador/">Conheça o fundador →</a>
+</div>
+</div>
+</section>
+
+<section class="secao noite">
+<div class="wrap duas" style="align-items:center">
+<h2>Quanto pesa a sua operação? <strong>A gente mede com você.</strong></h2>
+<div class="acoes">
+<a class="botao cheio" href="/raio-x/">Quero meu Raio-X da complexidade</a>
+<a class="botao vazado" href="/contato/">Falar com alguém</a>
+</div>
+</div>
+</section>
+
 </main>
-<a class="pular" href="como-funciona.html">Pular</a>
+
+<footer class="rodape">
+<div class="wrap">
+<div>rema.ia — Engenharia da leveza<br>São Paulo · rema.ia.br</div>
+<nav aria-label="Rodapé">
+<a href="/">Início</a>
+<a href="/solucoes/">Soluções</a>
+<a href="/raio-x/">Raio-X</a>
+<a href="/sobre/">Sobre</a>
+<a href="/fundador/">Fundador</a>
+<a href="/contato/">Contato</a>
+</nav>
+</div>
+</footer>
+
 <script>
 (function () {
-  var DESTINO = 'como-funciona.html'; // página interna
-  var TEMPO = 2200;                   // milissegundos até ir para a página interna
-  var palco = document.querySelector('.palco');
+  if (!document.documentElement.classList.contains('com-abertura')) return;
+  var abertura = document.getElementById('abertura');
+  var palco = abertura.querySelector('.palco');
+  var TEMPO = 2200; // milissegundos até a abertura sumir
   function ajustar() {
     var s = Math.min(1, (window.innerWidth - 32) / 800, (window.innerHeight - 32) / 520);
     palco.style.setProperty('--escala', s);
   }
+  function fechar() {
+    if (abertura.classList.contains('saindo')) return;
+    abertura.classList.add('saindo');
+    setTimeout(function () {
+      document.documentElement.classList.remove('com-abertura');
+      abertura.remove();
+    }, 350);
+  }
   ajustar();
   window.addEventListener('resize', ajustar);
-  var reduzido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  setTimeout(function () {
-    if (!reduzido) document.body.classList.add('saindo');
-    setTimeout(function () { window.location.replace(DESTINO); }, reduzido ? 0 : 350);
-  }, TEMPO - (reduzido ? 0 : 350));
+  abertura.querySelector('.pular').addEventListener('click', fechar);
+  document.addEventListener('keydown', fechar, { once: true });
+  setTimeout(fechar, TEMPO - 350);
 })();
 </script>
 </body>
