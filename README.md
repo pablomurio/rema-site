@@ -16,9 +16,9 @@ como-funciona.html      Etapas da implantação (fora do menu; linkada em Soluç
 assets/
   site.css                  Estilo global das páginas
   rema-ia-tokens.css        Cores e fontes da marca
-  rema-ia-simbolo.svg       Símbolo isolado (cabeçalho), recortado do kit oficial
-  favicon.svg, favicon.ico, apple-touch-icon.png   Gerados do ícone de app do kit
-  marca/                    Kit SVG oficial (logos claro/escuro, ícones de app e redes)
+  rema-ia-simbolo.png       Símbolo (cabeçalho e abertura), recortado da arte aprovada sem redesenho
+  favicon.svg, favicon.ico, apple-touch-icon.png   Símbolo aprovado sobre fundo Noite
+  marca/                    Arquivos finais aprovados (logo fundo escuro/claro, símbolo isolado)
 ```
 
 O cabeçalho e o rodapé se repetem em cada página: ao mudar o menu, atualize todas.
