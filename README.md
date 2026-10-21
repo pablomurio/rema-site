@@ -35,10 +35,14 @@ O site é estático: não precisa de servidor nem de instalação.
 - **Movimento reduzido:** quem ativou essa opção no aparelho não vê a abertura.
 - **Destino do formulário:** em `contato/index.html`, preencha `var DESTINO = '';` com o endereço que recebe o envio (POST).
 
+## Identidade visual
+
+Segue o Manual da Marca e o Brand Book v2 aprovados: cores de `rema-ia-tokens.css`, Sora 300/400/600, IBM Plex Mono para rótulos, degradê só no eixo Noite → Índigo → Lavanda.
+
 ## Pendências antes de publicar
 
 Os textos ainda a definir aparecem destacados em amarelo no site (`class="definir"`).
 
 - `contato/index.html`: definir o destino do formulário (`DESTINO`).
-- `fundador/index.html`: nome do fundador, trajetória desde 1999 e origem do nome “rema”.
+- Logo: os arquivos em `assets/` (`rema-ia-simbolo-cor.svg`, `favicon.svg`, logos com slogan) são da versão anterior. Trocar pelos vetores do beija-flor de 8 facetas aprovado no Manual da Marca v2, mantendo os mesmos nomes de arquivo.
 - `como-funciona.html`: resposta “Onde ficam os dados da minha empresa?”.
