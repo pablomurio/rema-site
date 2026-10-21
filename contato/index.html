@@ -63,9 +63,12 @@
 <div class="campo inteiro"><label for="descricao">Conte um pouco sobre a situação</label><textarea id="descricao" name="descricao" placeholder="O que se repete, onde trava, o que se perde fora do horário…"></textarea></div>
 <fieldset class="campo">
 <legend>Como você quer seguir?</legend>
-<label class="opcao"><input type="radio" name="interesse" value="raio-x" required> Quero agendar o Raio-X da Complexidade</label>
-<label class="opcao"><input type="radio" name="interesse" value="possibilidades"> Quero primeiro entender as possibilidades</label>
+<label class="opcao"><input type="radio" id="interesse-raio-x" name="interesse" value="Agendar o Raio-X da Complexidade" required> Quero agendar o Raio-X da Complexidade</label>
+<label class="opcao"><input type="radio" name="interesse" value="Primeiro entender as possibilidades"> Quero primeiro entender as possibilidades</label>
 </fieldset>
+<input type="hidden" name="_subject" value="Novo contato pelo site rema.ia">
+<input type="hidden" name="_template" value="table">
+<input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
 <p class="aviso" id="aviso" role="status" hidden></p>
 <div class="campo inteiro" style="align-items:flex-start"><button class="botao cheio" type="submit">Enviar</button></div>
 </form>
@@ -90,16 +93,16 @@
 
 <script>
 (function () {
-  // Endereço que recebe o formulário (POST). Ex.: um endpoint do Formspree, n8n ou similar.
-  // [DEFINIR] Enquanto estiver vazio, o formulário avisa que o envio não está disponível.
-  var DESTINO = '';
+  // Endereço que recebe o formulário: FormSubmit, que repassa por e-mail (e-mail provisório).
+  // Depois de ativar, dá para trocar o e-mail pelo código aleatório que o FormSubmit envia.
+  var DESTINO = 'https://formsubmit.co/ajax/pablomurio@gmail.com';
 
   var form = document.getElementById('form-contato');
   var aviso = document.getElementById('aviso');
 
   // Vindo do botão "Agendar meu Raio-X", já marca essa opção
   if (new URLSearchParams(location.search).get('interesse') === 'raio-x') {
-    form.querySelector('input[value="raio-x"]').checked = true;
+    document.getElementById('interesse-raio-x').checked = true;
   }
 
   function mostrar(texto) { aviso.textContent = texto; aviso.hidden = false; }
@@ -116,9 +119,16 @@
     }
     var botao = form.querySelector('button[type="submit"]');
     botao.disabled = true;
-    fetch(DESTINO, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } })
-      .then(function (r) {
-        if (!r.ok) throw new Error(r.status);
+    var dados = {};
+    new FormData(form).forEach(function (valor, campo) { dados[campo] = valor; });
+    fetch(DESTINO, {
+      method: 'POST',
+      body: JSON.stringify(dados),
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' }
+    })
+      .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+      .then(function (res) {
+        if (!res.ok || String(res.j.success) !== 'true') throw new Error(res.j.message);
         form.reset();
         mostrar('Recebemos sua mensagem. A gente responde em breve.');
       })

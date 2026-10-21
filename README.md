@@ -35,7 +35,7 @@ O site é estático: não precisa de servidor nem de instalação.
 
 - **Tempo da abertura:** em `index.html`, troque `var TEMPO = 2200;` (em milissegundos).
 - **Movimento reduzido:** quem ativou essa opção no aparelho não vê a abertura.
-- **Destino do formulário:** em `contato/index.html`, preencha `var DESTINO = '';` com o endereço que recebe o envio (POST).
+- **Destino do formulário:** em `contato/index.html`, `var DESTINO` aponta para o FormSubmit, que repassa cada envio por e-mail (hoje para o e-mail provisório). Para trocar o e-mail, troque o final do endereço.
 
 ## Identidade visual
 
@@ -45,5 +45,5 @@ Segue o Manual da Marca e o Brand Book v2 aprovados: cores de `rema-ia-tokens.cs
 
 Os textos ainda a definir aparecem destacados em amarelo no site (`class="definir"`).
 
-- `contato/index.html`: definir o destino do formulário (`DESTINO`).
+- Formulário: ativar o FormSubmit pelo link que chega no e-mail no primeiro envio. Depois, trocar o e-mail no código pelo código aleatório que o FormSubmit fornece, para o e-mail não ficar exposto no site.
 - `como-funciona.html`: resposta “Onde ficam os dados da minha empresa?”.
