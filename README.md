@@ -16,7 +16,9 @@ como-funciona.html      Etapas da implantação (fora do menu; linkada em Soluç
 assets/
   site.css                  Estilo global das páginas
   rema-ia-tokens.css        Cores e fontes da marca
-  favicon.svg, apple-touch-icon.png, logos .svg
+  rema-ia-simbolo.svg       Símbolo isolado (cabeçalho), recortado do kit oficial
+  favicon.svg, favicon.ico, apple-touch-icon.png   Gerados do ícone de app do kit
+  marca/                    Kit SVG oficial (logos claro/escuro, ícones de app e redes)
 ```
 
 O cabeçalho e o rodapé se repetem em cada página: ao mudar o menu, atualize todas.
@@ -44,5 +46,4 @@ Segue o Manual da Marca e o Brand Book v2 aprovados: cores de `rema-ia-tokens.cs
 Os textos ainda a definir aparecem destacados em amarelo no site (`class="definir"`).
 
 - `contato/index.html`: definir o destino do formulário (`DESTINO`).
-- Logo: os arquivos em `assets/` (`rema-ia-simbolo-cor.svg`, `favicon.svg`, logos com slogan) são da versão anterior. Trocar pelos vetores do beija-flor de 8 facetas aprovado no Manual da Marca v2, mantendo os mesmos nomes de arquivo.
 - `como-funciona.html`: resposta “Onde ficam os dados da minha empresa?”.

@@ -34,12 +34,12 @@
 .palco{position:relative;width:800px;height:520px;flex:none;transform:scale(var(--escala,1))}
 .linha{stroke-dasharray:1;stroke-dashoffset:1;animation:desenhar 1.2s cubic-bezier(.5,0,.12,1) .12s forwards}
 .linha2{stroke-dasharray:1;stroke-dashoffset:1;animation:desenhar 1.05s cubic-bezier(.5,0,.12,1) .2s forwards}
-.ave{position:absolute;left:0;top:0;width:96px;height:96px;offset-path:path('M225 360 C365 356 495 316 575 210');offset-rotate:0deg;offset-anchor:24% 90%;offset-distance:0%;opacity:0;animation:voar 1.2s cubic-bezier(.5,0,.12,1) .12s forwards}
-.asa{width:96px;height:96px;transform-origin:50% 60%;animation:bater .085s ease-in-out .12s 14 alternate}
+.ave{position:absolute;left:0;top:0;width:96px;height:86px;offset-path:path('M225 360 C365 356 495 316 575 210');offset-rotate:0deg;offset-anchor:8% 98%;offset-distance:0%;opacity:0;animation:voar 1.2s cubic-bezier(.5,0,.12,1) .12s forwards}
+.asa{width:96px;height:86px;transform-origin:50% 60%;animation:bater .085s ease-in-out .12s 14 alternate}
 .nome{position:absolute;left:0;right:0;top:400px;display:flex;flex-direction:column;align-items:center;gap:14px}
-.marca{margin:0;font-size:64px;font-weight:300;letter-spacing:.01em;line-height:1;opacity:0;transform:translateY(10px);animation:surgir .5s cubic-bezier(.2,.7,.2,1) 1.15s forwards}
-.marca span{color:#A9A9FF}
-.slogan{margin:0;font-size:12px;font-weight:400;letter-spacing:.44em;text-transform:uppercase;color:#C9CBEA;padding-left:.44em;opacity:0;animation:surgir .5s cubic-bezier(.2,.7,.2,1) 1.35s forwards}
+.marca{margin:0;font-size:64px;font-weight:600;letter-spacing:-.02em;line-height:1;opacity:0;transform:translateY(10px);animation:surgir .5s cubic-bezier(.2,.7,.2,1) 1.15s forwards}
+.marca span{color:#5B5BF7}
+.slogan{margin:0;font-size:19px;font-weight:300;letter-spacing:.14em;color:#FFFFFF;padding-left:.14em;opacity:0;animation:surgir .5s cubic-bezier(.2,.7,.2,1) 1.35s forwards}
 .pular{position:fixed;right:max(20px,env(safe-area-inset-right));bottom:max(20px,env(safe-area-inset-bottom));color:#C9CBEA;font:inherit;font-size:13px;background:none;border:0;cursor:pointer;padding:12px 16px;min-height:44px;border-radius:8px;opacity:.7}
 .pular:hover,.pular:focus-visible{opacity:1;outline:1px solid #2C3470}
 @keyframes desenhar{to{stroke-dashoffset:0}}
@@ -57,22 +57,11 @@
       <path class="linha" pathLength="1" d="M225 360 C365 356 495 316 575 210" stroke="#A9A9FF" stroke-width="1.6" stroke-linecap="round" fill="none"/>
     </svg>
     <div class="ave"><div class="asa">
-      <svg width="96" height="96" viewBox="0 0 120 120">
-        <g stroke="#111536" stroke-width="2.5" stroke-linejoin="round">
-          <polygon points="62,44 56,2 73,34" fill="#A9A9FF"/>
-          <polygon points="64,46 24,14 74,35" fill="#FFFFFF"/>
-          <polygon points="74,34 78,52 58,78 44,72" fill="#FFFFFF"/>
-          <polygon points="78,52 68,70 58,78" fill="#C9CBEA"/>
-          <polygon points="74,34 88,40 86,48 78,52" fill="#FFFFFF"/>
-          <polygon points="86,41 116,35 86,45" fill="#FFFFFF"/>
-          <polygon points="44,72 58,78 36,112" fill="#C9CBEA"/>
-          <polygon points="44,72 36,112 24,102" fill="#FFFFFF"/>
-        </g>
-      </svg>
+      <svg width="96" height="86" viewBox="30 52 364 324"><defs><linearGradient id="ab-grad1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#5B5BF7"/><stop offset="100%" stop-color="#A9A9FF"/></linearGradient><linearGradient id="ab-grad2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#A9A9FF"/><stop offset="100%" stop-color="#5B5BF7"/></linearGradient><linearGradient id="ab-grad3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#ECEBFF"/><stop offset="100%" stop-color="#CFCBFF"/></linearGradient><linearGradient id="ab-grad4" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#5B5BF7"/><stop offset="100%" stop-color="#7C7CFF"/></linearGradient><linearGradient id="ab-grad5" x1="0%" y1="50%" x2="100%" y2="50%"><stop offset="0%" stop-color="#7B7BFF"/><stop offset="100%" stop-color="#BEB6FF"/></linearGradient><linearGradient id="ab-grad6" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#EEF0FF"/><stop offset="100%" stop-color="#B6AEFF"/></linearGradient><linearGradient id="ab-grad7" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#5B5BF7"/><stop offset="100%" stop-color="#9D93FF"/></linearGradient><linearGradient id="ab-grad8" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#4667FF"/><stop offset="100%" stop-color="#8A79FF"/></linearGradient></defs><polygon points="34,108 138,56 198,90 112,132" fill="url(#ab-grad1)"/><polygon points="46,168 118,142 170,168 86,202" fill="url(#ab-grad2)"/><polygon points="136,93 201,78 232,117 168,166" fill="url(#ab-grad3)"/><polygon points="201,78 248,83 236,112 209,106" fill="url(#ab-grad4)"/><polygon points="248,83 390,58 236,112" fill="url(#ab-grad5)"/><polygon points="112,132 168,167 206,230 96,262" fill="url(#ab-grad6)"/><polygon points="168,166 232,117 238,165 206,230" fill="url(#ab-grad7)"/><polygon points="96,262 206,230 178,322 58,372" fill="url(#ab-grad8)"/></svg>
     </div></div>
     <div class="nome">
       <p class="marca">rema<span>.ia</span></p>
-      <p class="slogan">Engenharia da leveza</p>
+      <p class="slogan">Engenharia da leveza.</p>
     </div>
   </div>
   <button class="pular" type="button" tabindex="-1">Pular</button>
@@ -81,7 +70,7 @@
 <header class="topo">
 <div class="wrap">
 <a class="logo" href="/" aria-label="rema.ia, página inicial">
-<img src="/assets/rema-ia-simbolo-cor.svg" alt="" width="36" height="40">
+<img src="/assets/rema-ia-simbolo.svg" alt="" width="45" height="40">
 <span>rema<span>.ia</span></span>
 </a>
 <nav class="menu" aria-label="Principal">
