@@ -5,3 +5,4 @@ Dockerfile
 README.md
 *.zip
 .playwright-mcp
+*.pdf
